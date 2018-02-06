@@ -68,6 +68,7 @@ public class ListData {
 
 
 
+
             // take the elements of the json array
 
             for(int i=0; i<ques.length(); i++){
@@ -114,6 +115,8 @@ public class ListData {
         try {
 
             JSONArray ques= (JSONArray) jsonObject.get("players");
+            JSONArray bat = (JSONArray)jsonObject.get("batting");
+            JSONArray bowl = (JSONArray)jsonObject.get("bowling");
 
 
 
@@ -123,13 +126,68 @@ public class ListData {
 
 
                 JSONObject innerObj = (JSONObject) ques.getJSONObject(i);
+
                 String name= String.valueOf(innerObj.get("name"));
+                String type = String.valueOf(innerObj.get("type"));
+                String id = String.valueOf(innerObj.get("playerId"));
                 if(name.equalsIgnoreCase(s)){
                     Log.d("Found: ",s);
 
 
                     StringBuilder sb=new StringBuilder();
                     sb.append("Country: "+String.valueOf(innerObj.get("country"))+"\nType: "+String.valueOf(innerObj.get("type")));
+                    if(type.equalsIgnoreCase("bowler"))
+                    {
+                        for(int j = 0; j < bowl.length(); j++)
+                        {
+                            JSONObject innerObj1 = (JSONObject) bowl.getJSONObject(j);
+                            if(id.equalsIgnoreCase(String.valueOf(innerObj1.get("player_id"))))
+                            {
+                                sb.append("\nMatches: "+String.valueOf(innerObj1.get("matches"))+"\nWickets: "+String.valueOf(innerObj1.get("wickets_taken")+"\nEconomy: "+String.valueOf(innerObj1.get("economy"))+"\nStrike Rate: "+String.valueOf(innerObj1.get("strike_rate"))));
+                            }
+                        }
+                    }
+                    if(type.equalsIgnoreCase("batsman"))
+                    {
+                        for(int j = 0; j < bat.length(); j++)
+                        {
+                            JSONObject innerObj1 = (JSONObject) bat.getJSONObject(j);
+                            if(id.equalsIgnoreCase(String.valueOf(innerObj1.get("player_id"))))
+                            {
+                                sb.append("\nMatches: "+String.valueOf(innerObj1.get("matches"))+"\nRuns: "+String.valueOf(innerObj1.get("runs")+"\nAverage: "+String.valueOf(innerObj1.get("avg"))+"\nStrike Rate: "+String.valueOf(innerObj1.get("strike_rate"))+"\nHigh Score: "+String.valueOf(innerObj1.get("high_score"))));
+                            }
+                        }
+                    }
+                    if(type.equalsIgnoreCase("wicketkeeper"))
+                    {
+                        for(int j = 0; j < bat.length(); j++)
+                        {
+                            JSONObject innerObj1 = (JSONObject) bat.getJSONObject(j);
+                            if(id.equalsIgnoreCase(String.valueOf(innerObj1.get("player_id"))))
+                            {
+                                sb.append("\nMatches: "+String.valueOf(innerObj1.get("matches"))+"\nRuns: "+String.valueOf(innerObj1.get("runs")+"\nAverage: "+String.valueOf(innerObj1.get("avg"))+"\nStrike Rate: "+String.valueOf(innerObj1.get("strike_rate"))+"\nHigh Score: "+String.valueOf(innerObj1.get("high_score"))+"\nStumpings: "+String.valueOf(innerObj1.get("stumpings"))));
+                            }
+                        }
+                    }
+                    if(type.equalsIgnoreCase("allrounder"))
+                    {
+                        for(int j = 0; j < bat.length(); j++)
+                        {
+                            JSONObject innerObj1 = (JSONObject) bat.getJSONObject(j);
+                            if(id.equalsIgnoreCase(String.valueOf(innerObj1.get("player_id"))))
+                            {
+                                sb.append("\nMatches: "+String.valueOf(innerObj1.get("matches"))+"\nRuns: "+String.valueOf(innerObj1.get("runs")+"\nAverage: "+String.valueOf(innerObj1.get("avg"))+"\nStrike Rate: "+String.valueOf(innerObj1.get("strike_rate"))+"\nHigh Score: "+String.valueOf(innerObj1.get("high_score"))));
+                            }
+                        }
+                        for(int j = 0; j < bowl.length(); j++)
+                        {
+                            JSONObject innerObj1 = (JSONObject) bowl.getJSONObject(j);
+                            if(id.equalsIgnoreCase(String.valueOf(innerObj1.get("player_id"))))
+                            {
+                                sb.append("\nWickets: "+String.valueOf(innerObj1.get("wickets_taken")+"\nEconomy: "+String.valueOf(innerObj1.get("economy"))+"\nStrike Rate: "+String.valueOf(innerObj1.get("strike_rate"))));
+                            }
+                        }
+                    }
                     res=sb.toString();
                     break;
 
