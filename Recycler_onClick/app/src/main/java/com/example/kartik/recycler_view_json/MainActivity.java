@@ -28,14 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         rv_list = findViewById(R.id.rv_list);
         // rv_list.setHasFixedSize(false);
+        t=findViewById(R.id.tv);
 
-        l_adapter = new ListAdapter(this);
+        l_adapter = new ListAdapter(this,t);
         rv_list.setAdapter(l_adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rv_list.setLayoutManager(linearLayoutManager);
 
-   ;
+
     }
 
 }

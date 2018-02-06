@@ -19,14 +19,15 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         private String mItem;
-        private TextView mTextView;
+        private TextView mTextView,re;
         private ListData ld;
 
-        public ViewHolder(View view,ListData d) {
+        public ViewHolder(View view,ListData d,TextView t) {
             super(view);
             view.setOnClickListener(this);
             mTextView = (TextView) view.findViewById(R.id.tv_list_item);
             ld=d;
+            re=t;
         }
 
 
@@ -35,6 +36,7 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             Log.d("Clicked:",mTextView.getText().toString());
             String con=ld.displayContent(mTextView.getText().toString());
+            re.setText(con);
             
 
 
@@ -48,12 +50,15 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
     ListData data;
+    TextView re;
 
 
 
-    public ListAdapter(Context context){
+    public ListAdapter(Context context,TextView t ){
         this.context = context;
         data = new ListData(context);
+        re=t;
+
 
 
     }
@@ -63,7 +68,7 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.view_content,parent,false);
         ListViewHolder vh_list = new ListViewHolder(view);
-        ViewHolder vh=new ViewHolder(view,data);
+        ViewHolder vh=new ViewHolder(view,data,re);
 
 
         return vh_list;
