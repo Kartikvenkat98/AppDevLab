@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         l_adapter = new ListAdapter(this,t);
         rv_list.setAdapter(l_adapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rv_list.setLayoutManager(linearLayoutManager);
 
