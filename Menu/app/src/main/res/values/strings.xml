@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Menu</string>
+    <string name="popup_item1">First</string>
+    <string name="popup_item2">Second</string>
+    <string name="popup_item3">Third</string>
+    <string name="title_activity_add_car">AddCarActivity</string>
+</resources>
