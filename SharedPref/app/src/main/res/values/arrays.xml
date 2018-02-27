@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="theme_labels">
+        <item>Nature</item>
+        <item>Solar System</item>
+        <item>Techie</item>
+    </array>
+    <array name="theme_values">
+        <item>nature</item>
+        <item>solar</item>
+        <item>techie</item>
+    </array>
+
+</resources>
