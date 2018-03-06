@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.akash.mapsapp.MainActivity">
+
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/mapFragment"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Country"
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="420dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Country: "
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:onClick="viewCountry"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="420dp" />
+
+</LinearLayout>
